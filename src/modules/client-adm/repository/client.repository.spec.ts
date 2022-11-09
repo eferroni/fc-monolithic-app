@@ -30,7 +30,12 @@ describe("Client Repository test", () => {
             id: new Id('1'),
             name: 'Client 1',
             email: 'x@x.com',
-            address: 'Address 1',
+            street: 'Street 1',
+            number: '1',
+            complement: '2',
+            city: 'City 1',
+            state: 'State 1',
+            zipCode: 'Zip 1',
             createdAt: new Date(),
             updatedAt: new Date()
         }
@@ -45,7 +50,12 @@ describe("Client Repository test", () => {
         expect(clientDb.id).toEqual(clientProps.id.id);
         expect(clientDb.name).toEqual(clientProps.name);
         expect(clientDb.email).toEqual(clientProps.email);
-        expect(clientDb.address).toEqual(clientProps.address);
+        expect(clientDb.street).toEqual(clientProps.street);
+        expect(clientDb.number).toEqual(clientProps.number);
+        expect(clientDb.complement).toEqual(clientProps.complement);
+        expect(clientDb.city).toEqual(clientProps.city);
+        expect(clientDb.state).toEqual(clientProps.state);
+        expect(clientDb.zipCode).toEqual(clientProps.zipCode);
 
     });
 
@@ -56,7 +66,13 @@ describe("Client Repository test", () => {
             id: '1',
             name: 'Client 1',
             email: 'x@x.com',
-            address: 'Address 1',
+            document: '',
+            street: 'Street 1',
+            number: '1',
+            complement: '2',
+            city: 'City 1',
+            state: 'State 1',
+            zipCode: 'Zip 1',
             createdAt: new Date(),
             updatedAt: new Date()
         })
@@ -66,6 +82,12 @@ describe("Client Repository test", () => {
         expect(client.id.id).toEqual('1');
         expect(client.name).toEqual('Client 1');
         expect(client.email).toEqual('x@x.com');
-        expect(client.address).toEqual('Address 1');
+        expect(client.street).toEqual('Street 1');
+        expect(client.number).toEqual('1');
+        expect(client.complement).toEqual('2');
+        expect(client.city).toEqual('City 1');
+        expect(client.state).toEqual('State 1');
+        expect(client.zipCode).toEqual('Zip 1');
+
     })
 })

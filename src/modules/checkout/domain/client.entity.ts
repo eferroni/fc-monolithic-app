@@ -1,20 +1,18 @@
-import AggregateRoot from "../../@shared/domain/entity/aggregate-root.interface"
-import BaseEntity from "../../@shared/domain/entity/base.entity"
-import Id from "../../@shared/domain/value-object/id.value-object"
+import AggregateRoot from "../../@shared/domain/entity/aggregate-root.interface";
+import BaseEntity from "../../@shared/domain/entity/base.entity";
+import Id from "../../@shared/domain/value-object/id.value-object";
 
 type ClientProps = {
-    id?: Id,
-    name: string,
-    email: string,
-    document?: string,
-    street: string,
-    number: string,
-    complement: string,
-    city: string,
-    state: string,
-    zipCode: string,
-    createdAt?: Date,
-    updatedAt?: Date
+    id?: Id;
+    name: string;
+    email: string;
+    document?: string;
+    street: string;
+    number: string;
+    complement: string;
+    city: string;
+    state: string;
+    zipCode: string;
 }
 
 export default class Client extends BaseEntity implements AggregateRoot {
@@ -29,10 +27,10 @@ export default class Client extends BaseEntity implements AggregateRoot {
     private _zipCode: string;
 
     constructor(props: ClientProps) {
-        super(props.id, props.createdAt, props.updatedAt);
+        super(props.id);
         this._name = props.name;
         this._email = props.email;
-        this._document = props.document || '';
+        this._document = props.document;
         this._street = props.street;
         this._number = props.number;
         this._complement = props.complement;
@@ -42,38 +40,38 @@ export default class Client extends BaseEntity implements AggregateRoot {
     }
 
     get name(): string {
-        return this._name;
+        return this._name
     }
 
     get email(): string {
-        return this._email;
+        return this._email
     }
 
     get document(): string {
-        return this._document;
+        return this._document
     }
 
     get street(): string {
-        return this._street;
+        return this._street
     }
 
     get number(): string {
-        return this._number;
+        return this._number
     }
 
     get complement(): string {
-        return this._complement;
+        return this._complement
     }
 
     get city(): string {
-        return this._city;
+        return this._city
     }
 
     get state(): string {
-        return this._state;
+        return this._state
     }
 
     get zipCode(): string {
-        return this._zipCode;
+        return this._zipCode
     }
 }
