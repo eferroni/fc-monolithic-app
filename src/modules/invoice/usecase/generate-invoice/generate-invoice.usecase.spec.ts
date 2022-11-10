@@ -1,7 +1,7 @@
 import Id from "../../../@shared/domain/value-object/id.value-object";
 import Invoice from "../../domain/invoice.entity";
 import Product from "../../domain/product.entity";
-import Address from "../../value-object/address";
+import Address from "../../../@shared/domain/value-object/address";
 import GenerateInvoiceUsecase from "./generate-invoice.usecase";
 
 const address = new Address(

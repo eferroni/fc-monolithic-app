@@ -30,7 +30,7 @@ export default class Client extends BaseEntity implements AggregateRoot {
         super(props.id);
         this._name = props.name;
         this._email = props.email;
-        this._document = props.document;
+        this._document = props.document || '';
         this._street = props.street;
         this._number = props.number;
         this._complement = props.complement;

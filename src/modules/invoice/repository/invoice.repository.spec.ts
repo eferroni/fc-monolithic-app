@@ -2,10 +2,10 @@ import { Sequelize } from "sequelize-typescript"
 import Id from "../../@shared/domain/value-object/id.value-object";
 import Invoice from "../domain/invoice.entity";
 import Product from "../domain/product.entity";
-import Address from "../value-object/address";
+import Address from "../../@shared/domain/value-object/address";
 import InvoiceModel from "./invoice.model";
 import InvoiceRepository from "./invoice.repository";
-import ProductModel from "./product.model";
+import InvoiceItemModel from "./invoice-item.model";
 
 describe("Product Repository test", () => {
     let sequelize: Sequelize;
@@ -18,7 +18,7 @@ describe("Product Repository test", () => {
             sync: {force: true}
         });
 
-        await sequelize.addModels([InvoiceModel, ProductModel]);
+        await sequelize.addModels([InvoiceModel, InvoiceItemModel]);
         await sequelize.sync();
     });
 
@@ -110,7 +110,7 @@ describe("Product Repository test", () => {
                 }
             ]
         },
-        {include: [{model: ProductModel}]})    
+        {include: [{model: InvoiceItemModel}]})    
         
         const invoice = await repository.find('1');
 

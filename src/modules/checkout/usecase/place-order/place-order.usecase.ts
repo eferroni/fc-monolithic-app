@@ -74,8 +74,9 @@ export default class PlaceOrderUseCase implements UseCaseInterface {
         const payment = await this._paymentFacade.process({orderId: order.id.id, amount: order.total});
 
         // caso aprovado -> gerar invoice
-        const invoice = payment.status === 'approved' ?
-            await this._invoiceFacade.generate({
+        const invoice =
+            payment.status === 'approved'
+            ? await this._invoiceFacade.generate({
                 name: client.name,
                 document: client.document,
                 street: client.street,
@@ -88,12 +89,14 @@ export default class PlaceOrderUseCase implements UseCaseInterface {
                     id: p.id.id,
                     name: p.name,
                     price: p.salesPrice
-                }))
+                })),
             })
             : null;
-
+                
         // mudar o status da ordem para approved
-        payment.status === 'approved' && order.approved();
+        if (payment.status === 'approved') {
+            order.approved();
+        }
         this._repository.addOrder(order)
 
         // retornar dto

@@ -2,6 +2,7 @@ import { Sequelize } from "sequelize-typescript"
 import Id from "../../@shared/domain/value-object/id.value-object";
 import Product from "../domain/product.entity";
 import { ProductModel } from "./product.model";
+import ProductCatalogModel from "../../store-catalog/repository/product.model";
 import ProductRepository from "./product.repository";
 
 describe("Product Repository test", () => {
@@ -15,7 +16,7 @@ describe("Product Repository test", () => {
             sync: {force: true}
         });
 
-        await sequelize.addModels([ProductModel]);
+        await sequelize.addModels([ProductModel, ProductCatalogModel]);
         await sequelize.sync();
     });
 

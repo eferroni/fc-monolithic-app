@@ -3,7 +3,7 @@ import UseCaseInterface from "../../../@shared/usecase/usecase.interface";
 import Invoice from "../../domain/invoice.entity";
 import Product from "../../domain/product.entity";
 import InvoiceGateway from "../../gateway/invoice.gateway";
-import Address from "../../value-object/address";
+import Address from "../../../@shared/domain/value-object/address";
 import { GenerateInvoiceInputDto, GenerateInvoiceOutputDto } from "./generate-invoice.dto";
 
 export default class GenerateInvoiceUsecase implements UseCaseInterface{

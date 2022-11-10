@@ -1,7 +1,7 @@
 import { Sequelize } from "sequelize-typescript"
 import InvoiceFacadeFactory from "../factory/invoice.factory";
 import InvoiceModel from "../repository/invoice.model";
-import ProductModel from "../repository/product.model";
+import ProductModel from "../repository/invoice-item.model";
 
 describe("Invoice Facade test", () => {
     let sequelize: Sequelize;
@@ -97,11 +97,7 @@ describe("Invoice Facade test", () => {
 
         await facade.generate(input);
 
-        const inputFindInvoice = {
-            id: '1'
-        };
-
-        const result = await facade.find(inputFindInvoice);
+        const result = await facade.find({id: '1'});
         expect(result.id).toBe(input.id)
         expect(result.name).toBe(input.name);
         expect(result.document).toBe(input.document);

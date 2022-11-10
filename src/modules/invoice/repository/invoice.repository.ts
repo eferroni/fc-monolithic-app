@@ -2,9 +2,9 @@ import Id from "../../@shared/domain/value-object/id.value-object";
 import Invoice from "../domain/invoice.entity";
 import Product from "../domain/product.entity";
 import InvoiceGateway from "../gateway/invoice.gateway";
-import Address from "../value-object/address";
+import Address from "../../@shared/domain/value-object/address";
 import InvoiceModel from "./invoice.model";
-import ProductModel from "./product.model";
+import InvoiceItemModel from "./invoice-item.model";
 
 export default class InvoiceRepository implements InvoiceGateway {
     async generate(invoice: Invoice): Promise<void> {
@@ -27,7 +27,7 @@ export default class InvoiceRepository implements InvoiceGateway {
                 price: item.price
             }))
         },
-        {include: [{model: ProductModel}]})
+        {include: [{model: InvoiceItemModel}]})
     }
 
     async find(id: string): Promise<Invoice> {

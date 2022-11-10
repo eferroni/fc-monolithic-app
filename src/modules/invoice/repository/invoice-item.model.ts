@@ -3,10 +3,10 @@ import InvoiceModel from "./invoice.model";
 
 
 @Table({
-    tableName: 'products',
+    tableName: 'invoice_items',
     timestamps: false
 })
-export default class ProductModel extends Model {
+export default class InvoiceItemModel extends Model {
     @PrimaryKey
     @Column({allowNull: false})
     id: string;
@@ -19,9 +19,9 @@ export default class ProductModel extends Model {
 
     @ForeignKey(() => InvoiceModel)
     @Column({ allowNull: false })
-    declare invoice_id: string;
+    invoice_id: string;
   
     @BelongsTo(() => InvoiceModel)
-    declare invoice: InvoiceModel;
+    invoice: InvoiceModel;
       
 }
